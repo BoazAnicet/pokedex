@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchPokemons } from "../features/pokemonSlice";
+import { fetchPokemons, loadMore } from "../features/pokemonSlice";
 import { Link } from "react-router-dom";
 const URL = "https://pokeapi.co/api/v2/pokemon/";
 
 const PokemonList = () => {
   const dispatch = useDispatch();
-  const { pokemons, isLoading } = useSelector((state) => state.pokemon);
+  const { pokemons, isLoading, next } = useSelector((state) => state.pokemon);
 
   useEffect(() => {
     dispatch(fetchPokemons());
@@ -17,21 +17,24 @@ const PokemonList = () => {
     return pokemons.map((p) => <PokemonListItem key={p.name} pokemon={p} />);
   };
 
+  const load = () => {
+    console.log(next);
+    dispatch(loadMore(next));
+  };
+
   if (isLoading) return <div>Loading...</div>;
 
   return (
     <div>
       <div className='pokemon-list'>{renderPokemon()}</div>
       <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
-        <button>Load More</button>
+        <button onClick={() => load()}>Load More</button>
       </div>
     </div>
   );
 };
 
 export const PokemonListItem = (props) => {
-  // fetch each pokemon in here
-  // axios.get();
   const [pokemon, setPokemon] = useState({});
   const [loading, setLoading] = useState(true);
 
@@ -59,7 +62,7 @@ export const PokemonListItem = (props) => {
 
   return (
     <div className='pokemon-list-item'>
-      <Link to='/' className='image-container'>
+      <Link to={`/pokedex/${pokemon.name}`} className='image-container'>
         <img
           src={pokemon.sprites.other["official-artwork"].front_default}
           // src={pokemon.sprites.other.dream_world.front_default}

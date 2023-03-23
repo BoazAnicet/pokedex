@@ -1,7 +1,6 @@
 import { useState } from "react";
-import PokemonList from "../components/PokemonList";
 
-const Pokedex = () => {
+const Search = () => {
   const [search, setSearch] = useState("");
   const handleChange = (e) => {
     setSearch(e.target.value);
@@ -14,14 +13,11 @@ const Pokedex = () => {
 
   return (
     <div>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <input onChange={handleChange} value={search} />
-        </form>
-      </div>
-      <PokemonList />
+      <form onSubmit={handleSubmit}>
+        <input onChange={handleChange} value={search} />
+      </form>
     </div>
   );
 };
 
-export default Pokedex;
+export default Search;
