@@ -13,9 +13,9 @@ const initialState = {
 
 export const fetchPokemons = createAsyncThunk(
   "pokemons/fetch",
-  async (_, thunkAPI) => {
+  async (gen, thunkAPI) => {
     try {
-      return await pokemonsService.fetchPokemons();
+      return await pokemonsService.fetchPokemons(gen);
     } catch (error) {
       const message =
         (error.response &&
@@ -66,7 +66,11 @@ const pokemon = createSlice({
   name: "pokemon",
   initialState,
   reducers: {
-    reset: (state) => initialState,
+    reset: (state) => {
+      console.log("reset");
+      state = initialState;
+    },
+    // reset: (state) => initialState,
   },
   extraReducers: (builder) => {
     builder

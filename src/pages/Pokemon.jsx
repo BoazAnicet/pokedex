@@ -5,11 +5,14 @@ import { fetchPokemon, reset } from "../features/pokemonSlice";
 
 const Pokemon = () => {
   const dispatch = useDispatch();
-  const { pokemon, isLoading } = useSelector((state) => state.pokemon);
+  const { pokemon, isLoading, isSuccess } = useSelector(
+    (state) => state.pokemon
+  );
   const { id } = useParams();
 
   useEffect(() => {
     dispatch(reset());
+    console.log(isLoading);
     dispatch(fetchPokemon(id));
   }, []);
 
@@ -32,7 +35,10 @@ const Pokemon = () => {
     ));
   };
 
-  if (isLoading) return "Loading...";
+  console.log("Is Loading", isLoading);
+
+  if (!isSuccess) return "Loading...";
+  // if (isLoading) return "Loading...";
 
   return (
     <div className='pokemon'>

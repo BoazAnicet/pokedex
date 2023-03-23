@@ -5,31 +5,31 @@ import { fetchPokemons, loadMore } from "../features/pokemonSlice";
 import { Link } from "react-router-dom";
 const URL = "https://pokeapi.co/api/v2/pokemon/";
 
-const PokemonList = () => {
+const PokemonList = ({ gen }) => {
   const dispatch = useDispatch();
   const { pokemons, isLoading, next } = useSelector((state) => state.pokemon);
 
   useEffect(() => {
-    dispatch(fetchPokemons());
-  }, []);
+    dispatch(fetchPokemons(gen));
+  }, [gen]);
 
   const renderPokemon = () => {
     return pokemons.map((p) => <PokemonListItem key={p.name} pokemon={p} />);
   };
 
-  const load = () => {
-    console.log(next);
-    dispatch(loadMore(next));
-  };
+  // const load = () => {
+  //   console.log(next);
+  //   dispatch(loadMore(next));
+  // };
 
   if (isLoading) return <div>Loading...</div>;
 
   return (
     <div>
       <div className='pokemon-list'>{renderPokemon()}</div>
-      <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
+      {/* <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
         <button onClick={() => load()}>Load More</button>
-      </div>
+      </div> */}
     </div>
   );
 };
@@ -58,11 +58,28 @@ export const PokemonListItem = (props) => {
     ));
   };
 
-  if (loading) return "Loading...";
+  // if (loading) return "Loading...";
 
   return (
     <div className='pokemon-list-item'>
-      <Link to={`/pokedex/${pokemon.name}`} className='image-container'>
+      {loading ? (
+        <>...Loading</>
+      ) : (
+        <>
+          <Link to={`/pokedex/${pokemon.name}`} className='image-container'>
+            <img
+              src={pokemon.sprites.other["official-artwork"].front_default}
+              // src={pokemon.sprites.other.dream_world.front_default}
+              name={pokemon.name}
+            />
+          </Link>
+          <div># {pokemon.id}</div>
+          <div>{pokemon.name}</div>
+          <div className='types'>{renderTypes()}</div>
+        </>
+      )}
+
+      {/* <Link to={`/pokedex/${pokemon.name}`} className='image-container'>
         <img
           src={pokemon.sprites.other["official-artwork"].front_default}
           // src={pokemon.sprites.other.dream_world.front_default}
@@ -71,7 +88,7 @@ export const PokemonListItem = (props) => {
       </Link>
       <div># {pokemon.id}</div>
       <div>{pokemon.name}</div>
-      <div className='types'>{renderTypes()}</div>
+      <div className='types'>{renderTypes()}</div> */}
     </div>
   );
 };
