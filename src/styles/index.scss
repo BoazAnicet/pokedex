@@ -1,0 +1,168 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+.pokemon-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+
+  // max-width: 1280px;
+  // margin: 0 auto;
+
+  & .pokemon-list-item {
+    // padding: 1rem;
+    margin-bottom: 2rem;
+
+    & .image-container {
+      border-radius: 10px;
+      padding: 0.5rem;
+      background-color: rgba(0, 0, 0, 0.2);
+      // background-color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 200px;
+      height: 200px;
+
+      & img {
+        // max-height: 150px;
+        // max-width: 150px;
+        height: 100%;
+        // max-height: fit-content;
+        // max-width: fit-content;
+        // width: fit-content;
+      }
+    }
+
+    & .types {
+      display: flex;
+      margin-top: 0.5rem;
+
+      & .type {
+        height: 24px;
+        width: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // background-color: red;
+        // padding: 2px 1.5rem;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 12px;
+        line-height: 0px;
+      }
+
+      & .type:not(:last-child) {
+        margin-right: 4px;
+      }
+    }
+  }
+}
+
+// Normal Type: #A8A77A
+.normal {
+  color: black;
+  background-color: #a8a77a;
+}
+
+// Fire Type: #EE8130
+.fire {
+  color: black;
+  background-color: #ee8130;
+}
+
+// Water Type: #6390F0
+.water {
+  color: black;
+  background-color: #6390f0;
+}
+// Electric Type: #F7D02C
+.electric {
+  color: black;
+  background-color: #f7d02c;
+}
+// Grass Type: #7AC74C
+.grass {
+  color: black;
+  background-color: #7ac74c;
+}
+// Ice Type: #96D9D6
+// Fighting Type: #C22E28
+// Poison Type: #A33EA1
+.poison {
+  color: white;
+  background-color: #a33ea1;
+}
+// Ground Type: #E2BF65
+.ground {
+  color: white;
+  background-color: #e2bf65;
+}
+// Flying Type: #A98FF3
+.flying {
+  color: black;
+  background-color: #a98ff3;
+}
+// Psychic Type: #F95587
+.psychic {
+  color: black;
+  background-color: #f95587;
+}
+// Bug Type: #A6B91A
+.bug {
+  color: black;
+  background-color: #a6b91a;
+}
+// Rock Type: #B6A136
+.rock {
+  color: black;
+  background-color: #b6a136;
+}
+// Ghost Type: #735797
+.ghost {
+  color: white;
+  background-color: #735797;
+}
+// Dragon Type: #6F35FC
+.dragon {
+  color: white;
+  background-color: #6f35fc;
+}
+// Dark Type: #705746
+.dark {
+  color: white;
+  background-color: #705746;
+}
+// Steel Type: #B7B7CE
+.steel {
+  color: black;
+  background-color: #b7b7ce;
+}
+// Fairy Type: #D685AD
+.fairy {
+  color: black;
+  background-color: #d685ad;
+}
+
+// Normal Type: #A8A77A
+// Fire Type: #EE8130
+// Water Type: #6390F0
+// Electric Type: #F7D02C
+// Grass Type: #7AC74C
+// Ice Type: #96D9D6
+// Fighting Type: #C22E28
+// Poison Type: #A33EA1
+// Ground Type: #E2BF65
+// Flying Type: #A98FF3
+// Psychic Type: #F95587
+// Bug Type: #A6B91A
+// Rock Type: #B6A136
+// Ghost Type: #735797
+// Dragon Type: #6F35FC
+// Dark Type: #705746
+// Steel Type: #B7B7CE
+// Fairy Type: #D685AD
