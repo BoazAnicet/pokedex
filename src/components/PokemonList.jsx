@@ -17,19 +17,11 @@ const PokemonList = ({ gen }) => {
     return pokemons.map((p) => <PokemonListItem key={p.name} pokemon={p} />);
   };
 
-  // const load = () => {
-  //   console.log(next);
-  //   dispatch(loadMore(next));
-  // };
-
   if (isLoading) return <div>Loading...</div>;
 
   return (
     <div>
       <div className='pokemon-list'>{renderPokemon()}</div>
-      {/* <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
-        <button onClick={() => load()}>Load More</button>
-      </div> */}
     </div>
   );
 };
@@ -58,8 +50,6 @@ export const PokemonListItem = (props) => {
     ));
   };
 
-  // if (loading) return "Loading...";
-
   return (
     <div className='pokemon-list-item'>
       {loading ? (
@@ -69,7 +59,6 @@ export const PokemonListItem = (props) => {
           <Link to={`/pokedex/${pokemon.name}`} className='image-container'>
             <img
               src={pokemon.sprites.other["official-artwork"].front_default}
-              // src={pokemon.sprites.other.dream_world.front_default}
               name={pokemon.name}
             />
           </Link>
@@ -78,17 +67,6 @@ export const PokemonListItem = (props) => {
           <div className='types'>{renderTypes()}</div>
         </>
       )}
-
-      {/* <Link to={`/pokedex/${pokemon.name}`} className='image-container'>
-        <img
-          src={pokemon.sprites.other["official-artwork"].front_default}
-          // src={pokemon.sprites.other.dream_world.front_default}
-          name={pokemon.name}
-        />
-      </Link>
-      <div># {pokemon.id}</div>
-      <div>{pokemon.name}</div>
-      <div className='types'>{renderTypes()}</div> */}
     </div>
   );
 };

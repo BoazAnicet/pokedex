@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PokemonList from "../components/PokemonList";
+import pokedex_image from "../assets/pokedex.png";
 
 const Pokedex = () => {
   const [gen, setGen] = useState(1);
@@ -10,6 +11,9 @@ const Pokedex = () => {
 
   return (
     <div className='pokedex'>
+      <div class='logo'>
+        <img src={pokedex_image} name='Pokedex' alt='pokedex' />
+      </div>
       <div className='gen-list'>
         <ul>
           <li>

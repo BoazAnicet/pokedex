@@ -66,11 +66,11 @@ const pokemon = createSlice({
   name: "pokemon",
   initialState,
   reducers: {
-    reset: (state) => {
-      console.log("reset");
-      state = initialState;
-    },
-    // reset: (state) => initialState,
+    // reset: (state) => {
+    //   console.log("reset");
+    //   state = initialState;
+    // },
+    reset: (state) => initialState,
   },
   extraReducers: (builder) => {
     builder

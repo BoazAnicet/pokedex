@@ -20,8 +20,8 @@ const Pokemon = () => {
     return pokemon.stats.map((s) => {
       return (
         <div className='stat' key={s.stat.name}>
-          <div>{s.stat.name}</div>
-          <div>{s.base_stat}</div>
+          <div className='stat-name'>{s.stat.name}</div>
+          <div className='stat-data'>{s.base_stat}</div>
         </div>
       );
     });
@@ -37,20 +37,29 @@ const Pokemon = () => {
 
   console.log("Is Loading", isLoading);
 
-  if (!isSuccess) return "Loading...";
+  // if (!isSuccess) return "Loading...";
   // if (isLoading) return "Loading...";
 
   return (
     <div className='pokemon'>
-      <div>
-        {pokemon.name} #{pokemon.id}
-      </div>
-      <img
-        src={pokemon.sprites.other["official-artwork"].front_default}
-        name={pokemon.name}
-      />
-      <div className='stats'>{renderStats()}</div>
-      <div className='types'>{renderTypes()}</div>
+      {!isSuccess ? (
+        <>Loading...</>
+      ) : (
+        <>
+          <div className='pokemon-image'>
+            <div>
+              {pokemon.name} #{pokemon.id}
+            </div>
+            <img
+              src={pokemon.sprites.other["official-artwork"].front_default}
+              name={pokemon.name}
+              alt={pokemon.name}
+            />
+          </div>
+          <div className='stats'>{renderStats()}</div>
+          <div className='types'>{renderTypes()}</div>
+        </>
+      )}
     </div>
   );
 };

@@ -1,4 +1,13 @@
 .pokedex {
+  .logo {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    height: 250px;
+
+    & img {
+    }
+  }
   .gen-list {
     justify-content: center;
     display: flex;

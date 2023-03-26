@@ -1,3 +1,29 @@
 .pokemon {
   display: flex;
+
+  &-image {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  & .stats {
+    padding: 1rem;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    grid-template-rows: repeat(3, 40px);
+    background-color: #333;
+    height: max-content;
+
+    & .stat {
+      &-name {
+        font-weight: 700;
+      }
+      &-data {
+        color: gray;
+      }
+    }
+  }
 }
