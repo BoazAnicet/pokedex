@@ -1,9 +1,5 @@
 import axios from "axios";
 
-// import Pokedex from "pokedex-promise-v2";
-// const P = new Pokedex({ versionPath: "/api/v2/" });
-// console.log(P);
-
 const fetchPokemons = async (gen) => {
   let offset = 0;
   let limit = 151;
@@ -12,14 +8,10 @@ const fetchPokemons = async (gen) => {
     case 1:
       offset = 0;
       limit = 151;
-      console.log(offset);
-      console.log(limit);
       break;
     case 2:
       offset = 151;
       limit = 100;
-      console.log(offset);
-      console.log(limit);
       break;
     case 3:
       offset = 251;

@@ -1,10 +1,22 @@
 .pokemon {
-  display: flex;
+  // display: flex;
+
+  & .image-and-stats {
+    display: flex;
+    align-items: center;
+  }
+
+  &-name {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
 
   &-image {
     display: flex;
     flex-direction: column;
     text-align: center;
+    margin-right: 3rem;
   }
 
   & .stats {
@@ -16,6 +28,7 @@
     grid-template-rows: repeat(3, 40px);
     background-color: #333;
     height: max-content;
+    margin-bottom: 2rem;
 
     & .stat {
       &-name {
@@ -24,6 +37,25 @@
       &-data {
         color: gray;
       }
+    }
+  }
+
+  & .types {
+    display: flex;
+    margin-top: 0.5rem;
+
+    & .type {
+      padding: 1px 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    & .type:not(:last-child) {
+      margin-right: 4px;
     }
   }
 }

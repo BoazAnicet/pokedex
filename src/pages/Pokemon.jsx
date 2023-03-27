@@ -12,7 +12,7 @@ const Pokemon = () => {
 
   useEffect(() => {
     dispatch(reset());
-    console.log(isLoading);
+    // console.log(isLoading);
     dispatch(fetchPokemon(id));
   }, []);
 
@@ -35,29 +35,29 @@ const Pokemon = () => {
     ));
   };
 
-  console.log("Is Loading", isLoading);
-
-  // if (!isSuccess) return "Loading...";
-  // if (isLoading) return "Loading...";
-
   return (
     <div className='pokemon'>
       {!isSuccess ? (
         <>Loading...</>
       ) : (
         <>
-          <div className='pokemon-image'>
-            <div>
-              {pokemon.name} #{pokemon.id}
-            </div>
-            <img
-              src={pokemon.sprites.other["official-artwork"].front_default}
-              name={pokemon.name}
-              alt={pokemon.name}
-            />
+          <div className='pokemon-name'>
+            {pokemon.name} #{pokemon.id}
           </div>
-          <div className='stats'>{renderStats()}</div>
-          <div className='types'>{renderTypes()}</div>
+          <div className='image-and-stats' style={{ display: "flex" }}>
+            <div className='pokemon-image'>
+              <img
+                src={pokemon.sprites.other["official-artwork"].front_default}
+                name={pokemon.name}
+                alt={pokemon.name}
+              />
+            </div>
+            <div>
+              <div className='stats'>{renderStats()}</div>
+              <div>Type</div>
+              <div className='types'>{renderTypes()}</div>
+            </div>
+          </div>
         </>
       )}
     </div>

@@ -11,7 +11,7 @@ const Pokedex = () => {
 
   return (
     <div className='pokedex'>
-      <div class='logo'>
+      <div className='logo'>
         <img src={pokedex_image} name='Pokedex' alt='pokedex' />
       </div>
       <div className='gen-list'>
